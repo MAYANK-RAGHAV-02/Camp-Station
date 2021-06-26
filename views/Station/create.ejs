@@ -1,0 +1,89 @@
+ <% layout('layouts/booil') %>
+ <style>
+     .card{
+         background-color: #dee2e6;
+         border-radius: 0.75rem;
+     }
+     .form-control{
+         background-color: #f0f2f5;
+     }
+ </style>
+    
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class=" mark text-center text-muted">New Station</h1>
+
+                <form action="/station" method="POST"  novalidate  class="validated-form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label"   >Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="enter the title" name="title" required>
+                    
+                        <div class="valid-feedback">
+                            looks good
+                        </div>
+                    </div>
+                   
+                    
+                    <div  class="mb-3">
+                        <label class="form-label"   for="location">Location</label>
+                        <input  class="form-control"type="text" id="location" placeholder="enter the location" name="location" required>
+                    
+                        <div class="valid-feedback">
+                            looks good
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input class="form-control" type="file" name="image" id="formFile"  required multiple>
+                      </div>
+                   
+                    <!-- <div  class="mb-3">
+                        <label class="form-label"   for="Image">Image</label>
+                        <input  class="form-control"type="text" id="Image" placeholder="enter the Image" name="Image" required>
+                        <div class="valid-feedback">
+                            looks good
+                        </div>
+                    </div> -->
+        
+                    <div class="mb-3">
+                        <label class="form-label" for="price"> Price</label>
+                        <div class="input-group ">
+                            <span class="input-group-text">Rs</span>
+                            <input class="form-control" type="number" id="price" placeholder="0.00" aria-label="price" name="price" required>
+                   
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                        </div> 
+                    </div>
+        
+                    <div  class="mb-3">
+                        <label class="form-label"   for="description">Description</label>
+                        <textarea  class="form-control" type="text" id="description" placeholder="enter the description" name="description" required></textarea>
+                    
+                        <div class="valid-feedback">
+                            looks good
+                        </div>
+                    </div>
+        
+                  <button class="btn btn-success">Create Station</button>
+                </form>
+            </div>
+            
+
+        </div>
+        
+    </div>
+        
+</div>
+         
+
+    
+<!-- -------------------------------------- -->
+
+
+
+
+  

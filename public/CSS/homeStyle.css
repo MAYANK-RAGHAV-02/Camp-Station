@@ -1,0 +1,32 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url('https://media.gettyimages.com/photos/amber-fort-jaipur-india-picture-id154894958?k=6&m=154894958&s=612x612&w=0&h=dwiNWTCdX4RD0VLpzcT1B1xlQKU40F-WRnYHVvZvtRI=');
+    background-size: cover;
+    background-position: center;
+     
+    
+}
+.main{
+max-width: 60vw;
+}
+.nav-link{
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgb(255,255,255,0.5);
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover{
+    color: rgba(255,2255,255,0.5);
+    border-bottom-color:rgba(255,2255,255,0.5);
+}
+
+.btn-secondary{
+  
+    font-weight: 700;
+}
+
+.navbar-brand{
+    font-weight:700
+}

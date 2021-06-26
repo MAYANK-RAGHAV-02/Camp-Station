@@ -1,0 +1,156 @@
+<% layout('layouts/booil') %>
+<link rel="stylesheet" href="/CSS/app.css">
+<style>
+  .card,.list-group-item{
+    border-radius: 0.5rem;
+    background-color: #f0f2f5;
+  }
+  .carousel-inner{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .form-control{
+    border-radius: 0.5rem;
+    background-color: #f0f2f5;
+
+  }
+</style>
+
+
+
+
+
+<div class="row mb-3">
+  <div class="col-6  offset-l-2 " style="width: 35rem;" >
+    <div class="card shadow mb-3" >
+
+      <div id="stationControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner " >
+          
+          <% detail.Images.forEach((img, i) => { %>
+          <div class="carousel-item <%= i=== 0 ? 'active' : '' %> ">
+            <img src="<%= img.url %>" class="d-block w-100" alt="">
+          </div>
+            <% } )%> 
+        </div>
+  
+        
+        <% if(detail.Images.length >1) {%> 
+        <button class="carousel-control-prev" type="button" data-bs-target="#stationControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#stationControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <% } %> 
+      </div>
+
+    
+       <div class="card-body">
+         <h5 class="card-title"><%= detail.title %> </h5>
+         <p class="card-text"><%= detail.description %> </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-muted "><%= detail.location %> </li>
+          <li class="list-group-item  "> Posted by <%= detail.author.username %> </li>
+          <li class="list-group-item"> Rs. <%= detail.price %> pr/day</li>
+        
+        </ul>
+        <% if(user.username && detail.author.username === user.username){ %> 
+        <div class="card-body  d-inline">
+            <a class="card-link" href="/station/<%= detail._id %>/edit ">
+            <div class="btn btn-info">Edit</div></a>
+           <form class="card-link d-inline " action="/station/<%= detail._id %>?_method=DELETE " method="POST">
+                <button class="btn btn-danger ">Delete</button>
+                </form>
+               
+        </div>
+        <% } %> 
+    </div>
+    
+ </div>
+
+ <% if(user){  %> 
+ <div class="col-6  " style="width: 35rem;"  >
+   <div class="mb-3">
+
+    <div class="card shadow">
+      <div id='map2' ></div>
+    </div>
+    
+
+   </div>
+
+   <div class="card shadow mb-3">
+     <div class="card-body">
+
+     
+     
+  
+    <form action="/station/<%= detail._id %>/reviews " method="POST" novalidate class="validated-form">
+      <div class="mb-3">
+
+        <fieldset class="starability-basic">
+          <legend>Rating:</legend>
+          <input type="radio" id="no-rate" class="input-no-rate" name="reviews[rating]" value="0" checked aria-label="No rating." />
+          <input type="radio" id="first-rate1" name="reviews[rating]" value="1" />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input type="radio" id="first-rate2" name="reviews[rating]" value="2" />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input type="radio" id="first-rate3" name="reviews[rating]" value="3" />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input type="radio" id="first-rate4" name="reviews[rating]" value="4" />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input type="radio" id="first-rate5" name="reviews[rating]" value="5" />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+      
+
+
+      <div class="mb-3" >
+        <label class="form-label" for="body">Review</label>
+        <textarea class="form-control" name="reviews[body]" id="body" cols="10" rows="3" required></textarea>
+        <div class="valid-feedback">
+          success
+        </div>
+      </div>
+      <button class="btn btn-success mb-2">submit</button>
+    </form>
+    </div>
+  </div>
+
+
+    <%  for(let d of detail.reviews){%>  
+    <div class="card shadow mb-3" >
+      <div class="card-body">
+        <h5 class="card-title"><%= d.author.username %>  </h5>
+          <p class="starability-result" data-rating="<%= d.rating %>">
+            Rated: <%= d.rating %> stars
+          </p>
+      
+          <p class="card-text">Review : <%= d.body %>  </p>
+      </div>
+      <div class="mb-2 mx-2">
+        <% if(user.username && d.author.username === user.username){ %>
+        <form action="/station/<%=detail._id %>/reviews/<%=d._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+        <% } %>    
+     </div>
+    </div>
+    <% } %> 
+    <% } %> 
+
+ </div>
+</div>
+
+
+<script>
+  const mapToken = '<%- process.env.MAPBOX_TOKEN%>';
+  const night = <%- JSON.stringify(detail) %>
+</script>
+<script src="/JS/mapJs.js"></script>
+

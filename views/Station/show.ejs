@@ -1,0 +1,66 @@
+<% layout('layouts/booil') %>
+
+<style>
+  .card{
+      background-color: #f0f2f5;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-left: none;
+  }
+.img-fluid{
+ margin: 0.5rem;
+
+ border-radius: 0.5rem;
+}
+.mark{
+  margin-top: 0.75rem;
+}
+</style>
+
+<div id="map" ></div>
+    <h1 class=" mark d-flex justify-content-center">All Camp  Station</h1>
+
+
+
+   
+    
+
+          <% for(let s of showAll) { %>
+          
+            <div class=" card mb-3    me-5"  >
+  
+              <div class="row " >
+                <div class=" col-md-4 " style="width: 21rem;">
+                  
+                    <img class="img-fluid " src="<%= s.Images[0].url %>" alt="..." >
+  
+                
+                </div>
+                <div class="col-md-8 ">
+                  <div class="card-body  my-2">
+                    <h5 class="card-title"><%= s.title %> </h5>
+                    <p class="card-text text-muted"><%= s.description %> </p>
+                    <a href="/station/<%= s._id %> " class="btn btn-primary">View <%= s.title %> </a>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          
+          <% } %> 
+  
+        
+  
+    
+
+
+    <script>
+      const mapToken = '<%- process.env.MAPBOX_TOKEN%>';
+      const station = { features:<%- JSON.stringify(showAll) %>}
+    </script>
+   
+
+    <script src="/JS/cluster.js"></script>
+    

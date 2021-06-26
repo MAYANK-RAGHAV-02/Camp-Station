@@ -1,0 +1,67 @@
+<% layout('layouts/booil') %>
+<style>
+    .card{
+        background-color: #dee2e6;
+        border-radius: 0.5rem;
+    }
+    .form-control{
+        background-color: #f0f2f5;
+    }
+</style>
+
+
+
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <div class="card-body ">
+                    <h4 class="card-title d-flex justify-content-center">Register</h4>
+                    <form action="/register" method="POST"  class="validated-form" novalidate>
+
+                        <div  class="mb-3">
+                            <label class="form-label"   for="username">username</label>
+                            <input  class="form-control" type="text" id="username" placeholder="enter the username" name="username" autofocus required>
+                
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                    
+                        </div>
+            
+                        <div  class="mb-3">
+                            <label class="form-label"   for="email">email</label>
+                            <input  class="form-control" type="email" id="email" placeholder="enter the email" name="email" required>
+                
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                        </div>
+            
+            
+                        <div  class="mb-3">
+                            <label class="form-label"   for="password">password</label>
+                            <input  class="form-control" type="password" id="password" placeholder="enter the password" name="password" required>
+                
+                            <div class="valid-feedback">
+                                looks good
+                            </div>
+                    
+                        </div>
+            
+                        <div class="mb-2 d-grid">
+                            <button class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+                    <h3 class="text-center mb-2">or</h3>
+                    <div class="mb-3 d-grid">
+                        <a href="/login" class="btn btn-primary">Login</a>
+                    </div>
+                     
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

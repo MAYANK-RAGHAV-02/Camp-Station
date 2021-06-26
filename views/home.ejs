@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/homeStyle.css">
+</head>
+<body class=" d-flex  text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Camp Station's</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <% if(!user){ %> 
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/register">Register</a>
+                        <% }else{ %> 
+                        <a class="nav-link" href="/logout">Logout</a>
+                        <% } %> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="main d-flex w-100 h-100 mx-auto flex-column">        
+            <main class="px-3 mt-auto">
+                <h1>Camp Station</h1>
+                <p>welcome to the Camp Station!! <br>Hii, my name is Mayank Raghav. <br> I'm a full-stack web developer. I make a project to finding the camp station, <br> creating a new one or edit the existing one ( only which is authorized by you).
+                    I mentioned some of them <br> if you know about any  please added it  . let's take a view. <br>
+                NOTE : Make sure location you added is correct and station you created is listed at last in all stations.</p>
+                <a href="/login" class="btn btn-lg btn-secondary font-weight-bold  ">Get started</a>
+
+            </main>
+            <footer class="mt-auto text-white-50">
+                <p>&copy; 2021 Camp Station</p>
+            </footer>
+        </div>
+
+    </div>
+
+   
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" 
+    crossorigin="anonymous"></script>
+</body>
+</html>
