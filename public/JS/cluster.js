@@ -3,7 +3,7 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 center: [79.0882,21.1458],
-zoom: 4
+zoom: 3.5
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -33,7 +33,7 @@ paint: {
 'circle-color': [
     'step',
     ['get', 'point_count'],
-    '#61a5c2',
+    '#61c2a0',
     10,
     '#2c7da0',
     20,
@@ -69,7 +69,7 @@ type: 'circle',
 source: 'station',
 filter: ['!', ['has', 'point_count']],
 paint: {
-'circle-color': '#61a5c2',
+'circle-color': '#c261a8',
 'circle-radius': 6,
 'circle-stroke-width': 1,
 'circle-stroke-color': '#fff'
