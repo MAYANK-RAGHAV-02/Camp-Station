@@ -85,7 +85,7 @@ app.use('/',userRoute)
 
 
 
-app.get('/home',(req,res)=>{
+app.get('/home',loginStrict,(req,res)=>{
     res.render('home')
     
 }) 

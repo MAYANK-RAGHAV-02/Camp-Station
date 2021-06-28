@@ -41,7 +41,7 @@ module.exports.login = async (req,res)=>{
       req.session.user_id = user
       req.flash('success','Welcome!!')
 
-      res.redirect('/station')
+      res.redirect('/home')
      
     }
     else{
